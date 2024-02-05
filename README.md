@@ -11,8 +11,8 @@ CS Study (2023.12~)
  2. 템플릿
     - 코드의 반복을 줄이기 위한 디자인 패턴
     - 중요 개념</br>
-      Client : 행동을 요청함
-      Context : 변화하지 않는 부분을 정리함
+      Client : 행동을 요청함</br>
+      Context : 변화하지 않는 부분을 정리함</br>
       Strategy : 어떤 클래스와 관계를 맺을지에 대해서 정의한 부분
     - 전략패턴
       Client의 코드에서 어떤 Strategy 사용할지 결정한 후 -> Context를 요청함
