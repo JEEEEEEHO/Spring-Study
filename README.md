@@ -22,3 +22,14 @@
 - 템플릿/콜백 패턴
       전략패턴과 유사하나, 인터페이스를 구현하는 부분이 메소드임
       
+ **3. 예외**
+ - RunTimeException : 프로그램 오류, catch throws를 하지 않아도 되며 런타임 에러의 보편화
+ - 예외 전환 :
+   ```
+   try {
+      예외가 발생하는 코드
+   } catch(SQLExcetption e) {
+      new RunTimeException(e); <- 해당 오류가 발생하더라도 RunTimeException으로 전환하여 처리함  
+   }
+   ```
+   - DataAccessException <- 데이터 엑세스 프로그램에 상관없이 예외처리 가능한 인터페이스 
