@@ -32,4 +32,10 @@
       new RunTimeException(e); <- 해당 오류가 발생하더라도 RunTimeException으로 전환하여 처리함  
    }
    ```
-   - DataAccessException <- 데이터 엑세스 프로그램에 상관없이 예외처리 가능한 인터페이스 
+   - DataAccessException <- 데이터 엑세스 프로그램에 상관없이 예외처리 가능한 인터페이스
+
+  **4. 서비스 추상화**
+  - 비즈니스 로직의 분리 (메소드로 따로 분리하여 처리함)
+  - 트랜잭션 로직 분리
+    *트랜잭션 경계 설정 중요 (커밋에 오류가 나는 경우 어떻게 할 것인가 = 전체 rollback / commit 알림)
+   - 테스트를 위한 interface 생성 
