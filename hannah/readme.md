@@ -182,3 +182,29 @@
 
     ![image](https://github.com/user-attachments/assets/21a8018b-476d-4753-bf3a-f02f9a0e465a)
 
+
+
+### 2. 명령어의 구조
+
+#### 1) 연산코드와 오퍼랜드
+![image](https://github.com/user-attachments/assets/90f82445-5f69-46c8-a8f1-7975f2af1b73)
+![image](https://github.com/user-attachments/assets/27495020-5fea-46f2-b2ef-7d66fddf7c5e)
+
+##### (1) 연산코드 (operation code) 
+ - 명령어가 수행할 연산, 연산자
+ - 기본적인 연산 코드 유형
+   ![image](https://github.com/user-attachments/assets/bcda0f6d-9d39-4933-88b0-e43af3a16081)
+   ![image](https://github.com/user-attachments/assets/6e8d1d1c-1559-4198-b058-4696fd083616)
+
+
+##### (2) 오퍼랜드 (operand) 
+
+- 연산에 사용될 데이터 또는 연산에 사용할 데이터가 저장된 위치, 피연산자
+- 오퍼랜드 필드 = 주소 필드
+    - why? 연산에 사용할 데이터가 저장될 위치인 메모리 주소나 레지스터 이름이 담기므로
+- 예시
+![image](https://github.com/user-attachments/assets/228333ef-b799-4fa9-8f6c-fbe1cfe81644)
+
+
+
+
