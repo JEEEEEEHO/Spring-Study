@@ -255,4 +255,85 @@
 
 
 ---
+## Chapter4. CPU의 작동 원리  
+
+### 1. ALU와 제어 장치
+
+#### 1) ALU
+![image](https://github.com/user-attachments/assets/812996b4-93cf-4a31-870e-4ee88047948d)
+- 레지스터와 제어 장치로부터 받아들인 피연산자와 제어 신호로 산술 연산, 논리 연산 등 다양한 연산을 수행함
+- ALU는 메모리가 아닌 레지스터에 우선 저장함
+    - why? CPU가 메모리에 접근하는 속도가 레지스터에 접근하는 속도보다 느리기 때문에
+- ALU는 계산 결과와 **플래그**를 내보냄
+    - 플래그( flag ) : 연산 결과에 대한 추가적인 상태 정보
+    - 플래그는 플래그 레지스터에 저장됨
+  ![image](https://github.com/user-attachments/assets/2f61edcf-f9c5-4402-b0fe-20022345f6b9)
+[참고] 오버 플로우(overflow) : 연산 결과가 연산을 담을 레지스터보다 큰 상황
+
+
+#### 2) 제어 장치
+- 제어 장치 : 제어 신호를 내보내고 명령어를 해석하는 부품
+- 제어 신호 : 컴퓨터 부품들을 관리하고 작동 시키기 위한 일종의 전기 신호
+![image](https://github.com/user-attachments/assets/936388fc-1c6d-472e-963b-7ebca9724135)
+
+- 제어 장치가 받아들이는 정보
+    - 클럭 신호(clock signal) : 컴퓨터의 모든 부품을 움직일 수 있게 하는 시간
+    - 해석해야 할 명령어 (명령 레지스터로 부터)
+    - 플래그 레지스터 속 플래그 값
+    - 시스템 버스, 그중에서 제어 버스로 전달된 제어 신호
+- 제어 장치가 내보내는 정보
+    - 제어 신호
+ 
+
+ ### 2. 레지스터
+ #### 1) 알아야 하는 레지스터
+  ##### (1) 프로그램 카운터(PC, Program Counter)
+   - 메모리에서 읽어 들일 명령어의 주소를 저장함
+   - 명령어 포인터 (IP, Instrunction Pointer) 라고 부르기도 함
+
+  ##### (2) 명령어 레지스터(IR, Instrunction Register)
+   - 메모리에서 읽어 들인 명령어를 저장하는 레지스터
+   - 제어 장치는 명령어 레지스터 속 명령어를 받아들이고 이를 해석한 뒤 제어 신호를 내보냄
+
+  ##### (3) 메모리 주소 레지스터(MAR, Memory Address Register)
+   - 메모리의 주소를 저장하는 레지스터
+   - CPU가 주소 값을 주소 버스로 보낼 때 거치게 됨
+
+  ##### (4) 메모리 버퍼 레지스터(MBR, Memory Buffer Register)
+   - 메모리와 주고받을 값(데이터와 명령어)를 저장하는 레지스터
+   - 데이터 버스로 주고받을 값이 거쳐 지나감
+   - 메모리 데이터 레지스터(MDR, Memory Data Register) 라고도 부름
+
+  ##### (5) 범용 레지스터(general purpose register)
+   - 다양하고 일반적인 상황에서 사용하는 레지스터
+   - 데이터와 주소를 모두 저장할 수 있음
+   - CPU 안에 여러 개 존재함
+
+  ##### (6) 플래그 레지스터(flag register) 
+   - 연산 결과 또는 CPU 상태에 대한 부가적인 정보를 저장하는 레지스터
+   - 특정 레지스터를 이용한 주소 지정 방식
+    
+   ###### ㄱ. 스택 주소 지정 방식
+       - 스택과 스택 포인터를 이용한 주소 지정 방식
+       - 스택 포인터( stack pointer ) : 스택의 꼭대기를 가리키는 레지스터(=마지막으로 저장한 값)
+       
+![image](https://github.com/user-attachments/assets/b59f604e-0ff1-44ba-acfc-570327095f36)
+![image](https://github.com/user-attachments/assets/9d81470f-1d5a-4e5b-9982-f78de19ac420)
+
+   ###### ㄴ. 변위 주소 지정 방식(displacement addressing mode)
+      - 오퍼랜드 필드의 값(변위)과 특정 레지스터의 값을 더하여 유효 주소를 얻어내는 주소 지정 방식
+       
+     a. 상대 주소 지정 방식(relative addressing mode)
+         - 오퍼랜드와 프로그램 카운터의 값을 더하여 유효 주소를 얻는 방식
+  ![image](https://github.com/user-attachments/assets/c36a6d73-0546-472f-80c2-93144e1b9218)
+  ![image](https://github.com/user-attachments/assets/89068611-19e1-40f6-81c8-c31c2636d13c)
+
+      b. 베이스 레지스터 주소 지정 방식
+         - 오퍼랜드와 베이스 레지스터의 값을 더하여 유효 주소를 얻는 방식
+         - 베이스 레지스터는 ‘기준 주소’, 오퍼랜드는 ‘기준 주소로부터 떨어진 거리’로서의 역할
+           즉,  베이스 레지스터 속 기준 주소로부터 얼마나 떨어져 있는 주소에 접근할 것인지를 연산하여 유효 주소를 얻어내는 방식
+  ![image](https://github.com/user-attachments/assets/511a4537-f771-4c11-b06a-2eda4935ef37)
+
+
+       
 
