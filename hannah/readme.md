@@ -337,4 +337,32 @@
 #### [참고] 레지스터 더 알아보기
      https://github.com/kangtegong/self-learning-cs/blob/main/registers/registers.md  
 
+### 3. 명령어 사이클과 인터럽트
+![image](https://github.com/user-attachments/assets/a2a07d1d-9721-4f2a-b5c7-96b58d0ada9e)
 
+ #### 1) 명령어 사이클(instruction cycle)
+     : 프로그램 속 각각의 명령어들이 반복되며 실행되는 일정한 주기
+  ##### (1) 인출 사이클(fetch cycle) : 메모리에 있는 명령어를 CPU로 가지고 오는 단계
+  ##### (2) 실행 사이클(execution cycle) 
+- CPU로 가지고 온 명령어를 실행함.
+- 제어 장치가 명령어 레지스터에 담긴 값을 해석하고 제어 신호를 발생 시키는 단계
+  ##### (3) 간접 사이클(indirect cycle)
+- 간접 주소 지정 방식 think, 명령어를 실행하기 위해 메모리 접근을 한 번 더 함
+![image](https://github.com/user-attachments/assets/d6333a2b-fd36-4f21-b249-f64af5277c30)
+
+
+#### 2) 인터럽트(interrupt)
+    : CPU의 정상적인 작업을 방해하는 신호
+    
+- 동기 인터럽트(synchronous interrupts)
+    - CPU에 의해 발생하는 인터럽트
+    - 프로그래밍 상의 오류와 같은 예외적인 상황에 마주쳤을 때 발생함
+    - 예외 exception 이라고도 부름
+
+- 비동기 인터럽트(asynchronous interrupts)
+   - 입출력 장치에 의해서 발생하는 인터럽트
+![image](https://github.com/user-attachments/assets/a674761b-97c1-4703-971d-4420432442be)
+![image](https://github.com/user-attachments/assets/8370b57a-8fd2-4773-9472-5a208ced506c)
+
+
+    - 입출력 장치에 의해서 발생하는 인터럽트 
