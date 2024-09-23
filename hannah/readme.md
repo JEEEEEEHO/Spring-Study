@@ -179,3 +179,6 @@
     (컴파일 언어는 소스 코드에 하나라도 오류 있으면 컴파일 불가)
 
   - 한 줄씩 실행, 변환 되기 때문에 컴파일 언어보다 느림
+
+    ![image](https://github.com/user-attachments/assets/21a8018b-476d-4753-bf3a-f02f9a0e465a)
+
