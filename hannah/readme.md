@@ -334,6 +334,7 @@
            즉,  베이스 레지스터 속 기준 주소로부터 얼마나 떨어져 있는 주소에 접근할 것인지를 연산하여 유효 주소를 얻어내는 방식
   ![image](https://github.com/user-attachments/assets/511a4537-f771-4c11-b06a-2eda4935ef37)
 
+#### [참고] 레지스터 더 알아보기
+     https://github.com/kangtegong/self-learning-cs/blob/main/registers/registers.md  
 
-       
 
