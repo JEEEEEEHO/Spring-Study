@@ -204,7 +204,51 @@
     - why? 연산에 사용할 데이터가 저장될 위치인 메모리 주소나 레지스터 이름이 담기므로
 - 예시
 ![image](https://github.com/user-attachments/assets/228333ef-b799-4fa9-8f6c-fbe1cfe81644)
+![image](https://github.com/user-attachments/assets/b0c0d863-1cfc-4791-9d58-fc399424330f)
 
 
+#### 1) 주소 지정 방식(addressing mode)
 
+- 오퍼랜드 필드에  연산에 사용할 데이터 위치를 찾는 방식, (=유효 주소 찾는 방식)
+    - why? 한정된 메모리에서 좀 더 효율적으로 데이터를 표시하기 위해서
+    - 
+ ##### (1) 즉시 주소 지정 방식
+
+- 연산에 사용할 데이터 명시
+- 표현할 데이터의 크기는 작아지나 연산에 필요한 데이터를 찾는 과정이 없어 빠름
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a91b65f4-9602-44ec-876e-98bc83e4c4c5/7b69e79c-b98a-49bf-a49f-caa76b5ee029/Untitled.png)
+
+##### (2) 직접 주소 지정 방식
+
+- 유효 주소(메모리 주소) 명시
+- 즉시 주소 지정 방식보다는 표현 가능 데이터 크기가 커졌지만, 
+유효 주소를 표현할 수 있는 범위가 연산 코드의 비트 수만큼 줄어들었음
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a91b65f4-9602-44ec-876e-98bc83e4c4c5/d389c619-855c-4803-bb6f-94a5a67f9024/Untitled.png)
+
+##### (3) 간접 주소 지정 방식
+
+- 유효 주소의 주소 명시
+- 직접 주소 지정 방식보다 표현 할 수 있는 유효 주소 범위가 넓어짐
+- 메모리에 두 번 접근해야 해서 다른 방식들보다 다소 느림
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a91b65f4-9602-44ec-876e-98bc83e4c4c5/6bbf9e14-63bc-4f3e-a5b6-f035bb98a6ac/Untitled.png)
+
+##### (4) 레지스터 주소 지정 방식
+
+- 유효 주소(레지스터 이름) 명시
+- CPU 외부에 있는 메모리보다 CPU 내부에 있는 레지스터에 접근하는 것이 더 빠름. 따라서 직접 주소 지정 방식보다 빠르게 데이터에 접근이 가능함
+- But, 직접 주소 지정 방식처럼 표현 가능한 데이터 크기에 한계가 있음
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a91b65f4-9602-44ec-876e-98bc83e4c4c5/ad2297dc-d856-4a8f-a2cc-7dfec9bf1f37/Untitled.png)
+
+##### (5) 레지스터 간접 주소 지정 방식
+
+- 연산에 필요한 데이터는 메모리에 저장하고, 그 주소(유효 주소)를 저장한 레지스터를 명시
+- 메모리에 접근하는 방식이 한번으로 줄어들어 간접 주소 지정 방식보다 빠름
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a91b65f4-9602-44ec-876e-98bc83e4c4c5/731a6cc5-cd30-486a-8cb9-54bac3395e25/Untitled.png)
+
+---
 
