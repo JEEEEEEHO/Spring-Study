@@ -404,4 +404,32 @@ CPU는 인터럽트 서비스 루틴을 실행하기 전에 프로그램 카운�
 ##### [명령어 사이클 정리]
 ![image](https://github.com/user-attachments/assets/bed406b5-c649-41b2-ad45-3d7bf1831bac)
 
+  ## Chapter5. CPU 성능 향상 기법
+### 1. 빠른 CPU를 위한 설계 기법
 
+#### 1) 클럭
+- 클럭 속도가 높은 CPU는 일반적으로 성능이 좋다
+- 클럭 속도 : 헤르츠(Hz) 단위로 측정함 1초에 클럭이 몇번 반복되는지 나타냄.
+(예) 1초에 클럭이 100번 반복 → 100Hz
+- 오버클럭킹(overclocking) : 최대 클럭 속도를 강제로 끌어올리는 일
+- 클럭 속도를 무조건 올린다고 CPU 성능이 향상 되는 것은 아니다. 발열이슈가 있음!
+  
+
+#### 2) 코어와 멀티 코어
+- CPU의 코어와 스레드 수를 늘리면 성능이 향상됨
+- 코어(Core) : 명령어를 실행하는 부품    (예) 8 코어 → 명령어 실행하는 부품 8개
+- CPU : 명령어를 실행하는 부품을 여러개 포함하는 부품 (코어가 여러 개 모인 것!)
+    
+    ⇒ 멀티 코어(multi-core) CPU 또는 멀티코어 프로세서라고 부름
+  ![image](https://github.com/user-attachments/assets/fc92b72a-0495-414f-a151-96da76c574d4)
+  ![image](https://github.com/user-attachments/assets/c2f870cc-12a7-447d-b737-04071932e00b)
+
+
+#### 3) 스레드
+- 스레드(thread) : 실행 흐름의 단위(사전적)
+    - 하드웨어적 스레드
+        - 하나의 코어가 동시에 처리하는 명령어 단위
+        - 1코어 1스레드 CPU
+          ![image](https://github.com/user-attachments/assets/94b9ed0c-f26f-4166-bac5-8adace8de122)
+        - 2코어 4스레드 CPU
+          ![image](https://github.com/user-attachments/assets/9f2aeb21-8c42-49e7-8044-d407a708694c)
