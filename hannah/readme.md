@@ -342,11 +342,11 @@
 
  #### 1) 명령어 사이클(instruction cycle)
      : 프로그램 속 각각의 명령어들이 반복되며 실행되는 일정한 주기
-  ##### (1) 인출 사이클(fetch cycle) : 메모리에 있는 명령어를 CPU로 가지고 오는 단계
-  ##### (2) 실행 사이클(execution cycle) 
+##### (1) 인출 사이클(fetch cycle) : 메모리에 있는 명령어를 CPU로 가지고 오는 단계
+##### (2) 실행 사이클(execution cycle) 
 - CPU로 가지고 온 명령어를 실행함.
 - 제어 장치가 명령어 레지스터에 담긴 값을 해석하고 제어 신호를 발생 시키는 단계
-  ##### (3) 간접 사이클(indirect cycle)
+##### (3) 간접 사이클(indirect cycle)
 - 간접 주소 지정 방식 think, 명령어를 실행하기 위해 메모리 접근을 한 번 더 함
 ![image](https://github.com/user-attachments/assets/d6333a2b-fd36-4f21-b249-f64af5277c30)
 
@@ -364,5 +364,44 @@
 ![image](https://github.com/user-attachments/assets/a674761b-97c1-4703-971d-4420432442be)
 ![image](https://github.com/user-attachments/assets/8370b57a-8fd2-4773-9472-5a208ced506c)
 
+##### (1) 하드웨어 인터럽트
+- 알림과 같은 인터럽트
+- CPU는 입출력 작업 도중에도 효율적으로 명령어를 처리하기 위해 하드웨어 인터럽트를 사용
+- 하드웨어 인터럽트 처리 순서
+![image](https://github.com/user-attachments/assets/f2956728-d551-4e62-8227-cefb1172d3f7)
 
-    - 입출력 장치에 의해서 발생하는 인터럽트 
+- 인터럽트 요청 신호
+  - 인터럽트 하기 전에 CPU에게 확인 받는 과정
+    ![image](https://github.com/user-attachments/assets/ea781923-11d6-41ba-8853-f644709e34a9)
+
+- 인터럽트 플래그
+   - 하드웨어 인터럽트를 받아들일지, 무시할지 결정하는 플래그
+   - 인터럽트 플래그가 불가능으로 되어 있으면 CPU는 인터럽트 요청이 와도 무시함
+(단, 모든걸 무시할 순 없음. 막을 수 있는 플래그와 막을 수 없는 플래그가 있음)
+![image](https://github.com/user-attachments/assets/26329e1f-9526-4c76-b960-d10a6ddd5c1c)
+![image](https://github.com/user-attachments/assets/d3248783-6278-42ab-8534-c1d59a40fcbc)
+
+- 인터럽트 서비스 루틴(ISR, Interrupt Service Routine)
+  - CPU가 인터럽트 요청을 받아들이기 위해 실행시키는 프로그램
+  - 인터럽트 핸들러(interrupt handler) 라고도 부름
+  - ‘CPU가  인터럽트를 처리한다’는 말은  ‘인터럽트 서비스 루틴을 실행하고, 
+    본래  수행하던 작업으로  다시 되돌아온다’ 라는  말과  동일함
+![Untitled (4)](https://github.com/user-attachments/assets/be5f488c-31f8-4771-9129-adb343cd3feb)
+
+- 인터럽트 벡터 (Interrupt Vector)
+  - 인터럽트 서비스 루틴을 식별하기 위한 정보
+![Untitled (5)](https://github.com/user-attachments/assets/16dce855-77c9-4699-8ab7-b7b80f3281b1)
+
+##### [하드웨어 인터럽트 정리]
+
+정리하면, ‘CPU가 인터럽트를 처리한다’는 말은 ‘인터럽트 서비스 루틴을 실행하고, 본래 수행하던 작업으로 다시 되돌아온다’는 말과 같습니다. 그리고 CPU가 인터럽트 서비스 루틴을 실행하려면 인터럽트 서비스 루틴의 시작 주소를 알아야 하는데, 이는 인터럽트 벡터를 통해 알 수 있습니다.
+
+CPU는 인터럽트 서비스 루틴을 실행하기 전에 프로그램 카운터 값 등 현재 프로그램을 재개하기 위해 필요한 모든 내용을 스택에 백업합니다. 그러고 나서 인터럽트 서비스 루틴의 시작 주소가 위치한 곳으로 프로그램 카운터 값을 갱신하고 인터럽트 서비스 루틴을 실행합니다.
+
+![image](https://github.com/user-attachments/assets/380620a2-f9c5-434e-9240-c45930b880f4)
+![image](https://github.com/user-attachments/assets/5d944e0b-83c5-4e18-9b0d-944ba8886535)
+
+##### [명령어 사이클 정리]
+![image](https://github.com/user-attachments/assets/bed406b5-c649-41b2-ad45-3d7bf1831bac)
+
+
